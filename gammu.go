@@ -146,7 +146,7 @@ func (sm *StateMachine) HardReset() error {
 
 func decodeUTF8(out *C.uchar, in string) {
 	cn := C.CString(in)
-	C.DecodeUTF8(out, cn, C.ulong(len(in)))
+	C.DecodeUTF8(out, cn, C.int(len(in)))
 	C.free(unsafe.Pointer(cn))
 }
 
